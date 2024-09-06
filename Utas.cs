@@ -8,11 +8,11 @@ namespace Bérletek
 {
     internal class Utas
     {
-        string felszallasHelye { get; set; }
-        string datum {  get; set; }
-        string azonosito { get; set; }
-        string tipus {  get; set; }
-        string ervenyesseg { get; set; }
+        public string felszallasHelye { get; set; }
+        public string datum {  get; set; }
+        public string azonosito { get; set; }
+        public string tipus {  get; set; }
+        public string ervenyesseg { get; set; }
 
         public Utas(string sor)
         {

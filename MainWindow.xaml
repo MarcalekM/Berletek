@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Button x:Name="UtasokSzama" Content="Buszra felszállni szándékozó utasok száma" HorizontalAlignment="Left" Margin="550,10,0,0" VerticalAlignment="Top" Click="UtasokSzama_Click" RenderTransformOrigin="0.465,0.547"/>
+        <Button x:Name="ElutasitottUtasok" Content="Elutasított utasok száma" HorizontalAlignment="Left" Margin="645,46,0,0" VerticalAlignment="Top" Click="ElutasitottUtasok_Click"/>
 
     </Grid>
 </Window>
