@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -8,19 +11,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Bérletek
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SecondWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SecondWindow : Window
     {
         List<Utas> utasok = new();
-        public MainWindow()
+        public SecondWindow()
         {
             InitializeComponent();
             using StreamReader sr = new(
@@ -60,7 +61,7 @@ namespace Bérletek
             foreach (var utas in utasok)
             {
                 if (utas.tipus.Equals("NYP") || utas.tipus.Equals("GYK")) ingyenes++;
-                else if (utas.tipus.Equals("TAB") || utas.tipus.Equals("NYB")) kedvezmeny++; 
+                else if (utas.tipus.Equals("TAB") || utas.tipus.Equals("NYB")) kedvezmeny++;
             }
             Kedvezmenyes.Text = $"Ingyenesen utazók száma: {ingyenes}\nKedvezménnyle utazok száma: {kedvezmeny}";
         }
