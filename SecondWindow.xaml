@@ -5,16 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bérletek"
         mc:Ignorable="d"
-        Title="SecondWindow" Height="450" Width="489">
-    <Grid>
+        Title="Utas adatok" Height="350" Width="415">
+    <Grid Margin="0,10,0,0" Height="446" VerticalAlignment="Top">
         <TextBox x:Name="UtasokSzama" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
         <TextBox  x:Name="ElutasitottUtasok" HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
         <TextBox x:Name="LegtobbFelszallo" HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
         <TextBox x:Name="Kedvezmenyes" HorizontalAlignment="Left" Margin="10,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283" Height="43"/>
-        
 
-
-
-        <TextBox x:Name="proba"  HorizontalAlignment="Left" Margin="342,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

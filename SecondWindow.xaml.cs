@@ -64,6 +64,32 @@ namespace Bérletek
                 else if (utas.tipus.Equals("TAB") || utas.tipus.Equals("NYB")) kedvezmeny++;
             }
             Kedvezmenyes.Text = $"Ingyenesen utazók száma: {ingyenes}\nKedvezménnyle utazok száma: {kedvezmeny}";
+
+            List<string> figyelmeztetett = new();
+            foreach (var utas in utasok)
+            {
+                if (utas.ervenyesseg == "0") f4++;
+                else if (utas.ervenyesseg.Length == 8)
+                {
+                    string datum = utas.datum.Split('-').First();
+                    string ervenyes = utas.ervenyesseg;
+                    int hatralevo = int.Parse(ervenyes.Substring(6, 2)) - int.Parse(datum.Substring(6, 2));
+                    if (int.Parse(datum.Substring(4, 2)) == int.Parse(ervenyes.Substring(4, 2)) && hatralevo <= 3)
+                    {
+                        string helyes = ervenyes.Substring(0, 4) + '-' + ervenyes.Substring(4, 2) + '-' + ervenyes.Substring(6, 2);
+                        figyelmeztetett.Add(utas.azonosito);
+                        figyelmeztetett.Add(helyes);
+                    };
+                }
+            }
+
+            using StreamWriter sw = new(
+                path: @"..\..\..\src\figyelmeztetes.txt",
+                append: false);
+            for (int i = 0; i < figyelmeztetett.Count; i += 2)
+            {
+                sw.WriteLine($"{figyelmeztetett[i]} {figyelmeztetett[i + 1]}");
+            }
         }
     }
 }

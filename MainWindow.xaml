@@ -5,12 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Bérletek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="400">
     <Grid>
-        <TextBox x:Name="UtasokSzama" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
-        <TextBox  x:Name="ElutasitottUtasok" HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
-        <TextBox x:Name="LegtobbFelszallo" HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283"/>
-        <TextBox x:Name="Kedvezmenyes" HorizontalAlignment="Left" Margin="10,157,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="283" Height="43"/>
-        <TextBox x:Name="proba"  HorizontalAlignment="Left" Margin="633,148,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Megálló sorszáma:" HorizontalAlignment="Left" Margin="55,40,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label Content="Felszállás dátuma:" HorizontalAlignment="Left" Margin="55,80,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label Content="Felszállás időpontja [óó:pp]:" HorizontalAlignment="Left" Margin="55,120,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label Content="Kártya azonosítoja:" HorizontalAlignment="Left" Margin="55,160,0,0" VerticalAlignment="Top" Width="110"/>
+        <ComboBox x:Name="Megallo" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Megallo_SelectionChanged"/>
+        <DatePicker x:Name="Datum" HorizontalAlignment="Left" Margin="200,80,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="UtasAdat" Content="Adatok" HorizontalAlignment="Left" Margin="320,382,0,0" VerticalAlignment="Top" Click="UtasAdat_Click"/>
+
+
     </Grid>
 </Window>
