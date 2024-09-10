@@ -35,6 +35,7 @@ namespace Bérletek
         {
             SecondWindow win2 = new SecondWindow();
             win2.Show();
+
         }
     }
 }
