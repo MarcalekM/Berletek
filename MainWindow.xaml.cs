@@ -37,5 +37,15 @@ namespace Bérletek
             win2.Show();
 
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            string content = ((RadioButton)sender).Content.ToString();
+            if (content == "Bérlet")
+            {
+
+
+            }
+        }
     }
 }

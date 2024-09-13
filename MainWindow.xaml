@@ -7,13 +7,42 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="400">
     <Grid>
-        <Label Content="Megálló sorszáma:" HorizontalAlignment="Left" Margin="55,40,0,0" VerticalAlignment="Top" Width="110"/>
-        <Label Content="Felszállás dátuma:" HorizontalAlignment="Left" Margin="55,80,0,0" VerticalAlignment="Top" Width="110"/>
-        <Label Content="Felszállás időpontja [óó:pp]:" HorizontalAlignment="Left" Margin="55,120,0,0" VerticalAlignment="Top" Width="110"/>
-        <Label Content="Kártya azonosítoja:" HorizontalAlignment="Left" Margin="55,160,0,0" VerticalAlignment="Top" Width="110"/>
+        <Label Content="Megálló sorszáma:" HorizontalAlignment="Left" Margin="55,40,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Felszállás dátuma:" HorizontalAlignment="Left" Margin="55,80,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Felszállás időpontja [óó:pp]:" HorizontalAlignment="Left" Margin="55,120,0,0" VerticalAlignment="Top" Width="160"/>
+        <Label Content="Kártya azonosítoja:" HorizontalAlignment="Left" Margin="55,160,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="Megallo" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Megallo_SelectionChanged"/>
         <DatePicker x:Name="Datum" HorizontalAlignment="Left" Margin="200,80,0,0" VerticalAlignment="Top"/>
         <Button x:Name="UtasAdat" Content="Adatok" HorizontalAlignment="Left" Margin="320,382,0,0" VerticalAlignment="Top" Click="UtasAdat_Click"/>
+        <TextBox x:Name="Ido" HorizontalAlignment="Left" Margin="215,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52"/>
+        <TextBox x:Name="Azonosito" HorizontalAlignment="Left" Margin="200,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <GroupBox x:Name="Bérlet" Header="Bérlet további adatai" Margin="55,203,159,79">
+            <StackPanel Height="117" Margin="2,0,0,0">
+                <Label Content="Bérlet típusa:" Height="25" Width="100"/>
+                <ComboBox x:Name="BerletTipus">
+                    <ComboBoxItem Content="FEB"/>
+                    <ComboBoxItem Content="TAB"/>
+                    <ComboBoxItem Content="NYB"/>
+                    <ComboBoxItem Content="NYP"/>
+                    <ComboBoxItem Content="RVS"/>
+                    <ComboBoxItem Content="GYK"/>
+                </ComboBox>
+                <Label Content="Bérlet érvényességi ideje"></Label>
+                <DatePicker x:Name="BerletErvenyesseg" ></DatePicker>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="Jegy" Header="Jegy további adatai" Margin="62,343,192,10">
+            <StackPanel>
+                <Slider></Slider>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox x:Name="Valaszto" Header="Bérlet vagy jegy" Margin="251,279,46,103">
+            <StackPanel>
+                <RadioButton Content="Bérlet" Checked="RadioButton_Checked"/>
+                <RadioButton Content="Jegy" Checked="RadioButton_Checked"/>
+            </StackPanel>
+        </GroupBox>
+
 
 
     </Grid>
