@@ -30,6 +30,8 @@ namespace Bérletek
             BerletTipus.Items.Add("Válasszon típust!");
             BerletTipus.SelectedItem = BerletTipus.Items[0];
             foreach (var tipus in tipusok) BerletTipus.Items.Add(tipus);
+            Datum.Text =  DateTime.Now.ToString();
+            AzonositoHossz.Content = Azonosito.Text.Length + " db";
         }
 
         private void UtasAdat_Click(object sender, RoutedEventArgs e)
@@ -66,6 +68,10 @@ namespace Bérletek
         {
             JegyErvenyessegErtek.Content = ((Slider)sender).Value.ToString() + " db";
         }
+        private void Azonosito_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            AzonositoHossz.Content = Azonosito.Text.Length + " db";
+        }
 
         private void Finish_Click(object sender, RoutedEventArgs e)
         {
@@ -90,7 +96,8 @@ namespace Bérletek
             
 
             if(Azonosito.Text.Length == 0) MessageBox.Show("Nem adott meg azonosítót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
-            else if (!r.IsMatch(Azonosito.Text)) azonosito = Azonosito.Text;
+            else if (!r.IsMatch(Azonosito.Text) && Azonosito.Text.Length == 7) azonosito = Azonosito.Text;
+            else if(Azonosito.Text.Length < 7) MessageBox.Show("Rövid az azonosító, nincs meg 7 számjegy!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             else MessageBox.Show("Rossz formátumban adta meg az azonosítót!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
 
             if (RadioBérlet.IsChecked == true)
@@ -118,6 +125,5 @@ namespace Bérletek
                 MessageBox.Show("A felszállás eltárolása sikeres volt!", "EUtazás 2020", MessageBoxButton.OK);
             }
         }
-
     }
 }
