@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,17 +32,19 @@ namespace Bérletek
             int f3 = utasok.Count();
             UtasokSzama.Text = $"A mai napon {f3} utas szállt fel a buszra";
 
-            int f4 = 0;
+            List<string> elutasitott = new();
             foreach (var utas in utasok)
             {
-                if (utas.ervenyesseg == "0") f4++;
+                if (utas.ervenyesseg == "0") elutasitott.Add(utas.azonosito);
                 else if (utas.ervenyesseg.Length == 8)
                 {
                     string datum = utas.datum.Split('-').First();
                     string ervenyes = utas.ervenyesseg;
-                    if (int.Parse(datum.Substring(4, 2)) == int.Parse(ervenyes.Substring(4, 2)) && (int.Parse(datum.Substring(6, 2)) > int.Parse(ervenyes.Substring(6, 2)))) f4++;
+                    //if (int.Parse(datum.Substring(4, 2)) == int.Parse(ervenyes.Substring(4, 2)) && (int.Parse(datum.Substring(6, 2)) > int.Parse(ervenyes.Substring(6, 2)))) elutasitott.Add(utas.azonosito);
+                    if (DateTime.ParseExact(datum, "yyyyMMdd", CultureInfo.InvariantCulture) > DateTime.ParseExact(ervenyes, "yyyyMMdd", CultureInfo.InvariantCulture)) elutasitott.Add(utas.azonosito);
                 }
             }
+            int f4 = elutasitott.Count;
             ElutasitottUtasok.Text = $"A mai napon {f4} utast kellett elutasítani";
 
             int f5 = 0;
@@ -60,8 +63,8 @@ namespace Bérletek
             int ingyenes = 0;
             foreach (var utas in utasok)
             {
-                if (utas.tipus.Equals("NYP") || utas.tipus.Equals("GYK")) ingyenes++;
-                else if (utas.tipus.Equals("TAB") || utas.tipus.Equals("NYB")) kedvezmeny++;
+                if (utas.tipus.Equals("NYP") || utas.tipus.Equals("GYK") || utas.tipus.Equals("RVS") && !elutasitott.Contains(utas.azonosito)) ingyenes++;
+                else if (utas.tipus.Equals("TAB") || utas.tipus.Equals("NYB") && !elutasitott.Contains(utas.azonosito)) kedvezmeny++;
             }
             Kedvezmenyes.Text = $"Ingyenesen utazók száma: {ingyenes}\nKedvezménnyle utazok száma: {kedvezmeny}";
 

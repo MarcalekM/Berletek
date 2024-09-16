@@ -13,7 +13,7 @@
         <Label Content="Kártya azonosítoja:" HorizontalAlignment="Left" Margin="55,160,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="Megallo" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top" Width="162" SelectionChanged="Megallo_SelectionChanged"/>
         <DatePicker x:Name="Datum" HorizontalAlignment="Left" Margin="200,80,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="UtasAdat" Content="Adatok" HorizontalAlignment="Left" Margin="320,382,0,0" VerticalAlignment="Top" Click="UtasAdat_Click"/>
+        <Button x:Name="UtasAdat" Content="Adatok lekérése" HorizontalAlignment="Left" Margin="251,382,0,0" VerticalAlignment="Top" Click="UtasAdat_Click"/>
         <TextBox x:Name="Ido" HorizontalAlignment="Left" Margin="215,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="52" MaxLength="5"/>
         <TextBox x:Name="Azonosito" HorizontalAlignment="Left" Margin="200,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLength="7" TextChanged="Azonosito_TextChanged"/>
         <Label x:Name="AzonositoHossz" Content="" Margin="325,160,0,222"/>

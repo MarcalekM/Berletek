@@ -109,11 +109,12 @@ namespace Bérletek
                 else MessageBox.Show("Nem adta meg a bérlet érvényességét!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            if(RadioJegy.IsChecked == true)
+            if(RadioJegy.IsChecked == true && JegyErvenyesseg.Value > 0)
             {
                 tipus = "JGY";
                 ervenyes = JegyErvenyesseg.Value.ToString();
             }
+            else MessageBox.Show("Nem adott meg jegy darabszámot (0 nem lehet)", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
 
             if (megallo != string.Empty && datum != string.Empty && ido != string.Empty && azonosito != string.Empty && tipus != string.Empty  && ervenyes != string.Empty)
             {
